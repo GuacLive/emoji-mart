@@ -13,10 +13,10 @@ const _getData = (props) => {
 
 const _getPosition = (props) => {
   var { sheet_x, sheet_y } = _getData(props),
-    multiplyX = 100 / (props.sheetColumns - 1),
-    multiplyY = 100 / (props.sheetRows - 1)
-
-  return `${multiplyX * sheet_x}% ${multiplyY * sheet_y}%`
+    multiply = 100 / props.sheetColumns,
+    x = Math.round(multiply * sheet_x * 100) / 100,
+    y = Math.round(multiply * sheet_y * 100) / 100
+  return `${x}% ${y}%`;
 }
 
 const _getSanitizedData = (props) => {
