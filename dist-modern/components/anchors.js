@@ -18,7 +18,11 @@ export default class Anchors extends React.PureComponent {
       titleIndexes
     } = this.props;
     const category = categories[index];
-    onAnchorClick(category, index, titleIndexes[category.id]);
+    const itemPosition = index === '1' ? {
+      col: 0,
+      row: 0
+    } : titleIndexes[category.id];
+    onAnchorClick(category, index, itemPosition);
   }
 
   render() {

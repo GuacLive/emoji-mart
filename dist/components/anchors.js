@@ -52,7 +52,11 @@ function (_React$PureComponent) {
           onAnchorClick = _this$props.onAnchorClick,
           titleIndexes = _this$props.titleIndexes;
       var category = categories[index];
-      onAnchorClick(category, index, titleIndexes[category.id]);
+      var itemPosition = index === '1' ? {
+        col: 0,
+        row: 0
+      } : titleIndexes[category.id];
+      onAnchorClick(category, index, itemPosition);
     }
   }, {
     key: "render",

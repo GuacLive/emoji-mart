@@ -389,7 +389,7 @@ function (_React$PureComponent) {
       var scrollToComponent = function scrollToComponent() {
         gridRef.current.scrollToItem({
           columnIndex: itemPosition.col,
-          rowIndex: itemPosition.row + 6
+          rowIndex: itemPosition.row ? itemPosition.row + 6 : 0
         });
       };
 
@@ -598,8 +598,8 @@ function (_React$PureComponent) {
       }, React.createElement(Grid, {
         ref: gridRef,
         columnCount: perLine,
-        columnWidth: 36,
-        rowHeight: 36,
+        columnWidth: emojiSize + 12,
+        rowHeight: emojiSize + 12,
         height: 264,
         width: perLine * 36 + 10,
         rowCount: rowCount,
