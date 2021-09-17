@@ -5,19 +5,19 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
-var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
 var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
 
 var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -29,38 +29,34 @@ var _nimbleEmojiIndex = _interopRequireDefault(require("../utils/emoji-index/nim
 
 var _index = require("../utils/index");
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
 var id = 0;
 
-var Search = /*#__PURE__*/function (_React$PureComponent) {
-  (0, _inherits2.default)(Search, _React$PureComponent);
-
-  var _super = _createSuper(Search);
+var Search =
+/*#__PURE__*/
+function (_React$PureComponent) {
+  (0, _inherits2["default"])(Search, _React$PureComponent);
 
   function Search(props) {
     var _this;
 
-    (0, _classCallCheck2.default)(this, Search);
-    _this = _super.call(this, props);
+    (0, _classCallCheck2["default"])(this, Search);
+    _this = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(Search).call(this, props));
     _this.state = {
       icon: _svgs.search.search,
       isSearching: false,
       id: ++id
     };
     _this.data = props.data;
-    _this.emojiIndex = new _nimbleEmojiIndex.default(_this.data);
-    _this.setRef = _this.setRef.bind((0, _assertThisInitialized2.default)(_this));
-    _this.clear = _this.clear.bind((0, _assertThisInitialized2.default)(_this));
-    _this.handleKeyUp = _this.handleKeyUp.bind((0, _assertThisInitialized2.default)(_this)); // throttle keyboard input so that typing isn't delayed
+    _this.emojiIndex = new _nimbleEmojiIndex["default"](_this.data);
+    _this.setRef = _this.setRef.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.clear = _this.clear.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.handleKeyUp = _this.handleKeyUp.bind((0, _assertThisInitialized2["default"])(_this)); // throttle keyboard input so that typing isn't delayed
 
-    _this.handleChange = (0, _index.throttleIdleTask)(_this.handleChange.bind((0, _assertThisInitialized2.default)(_this)));
+    _this.handleChange = (0, _index.throttleIdleTask)(_this.handleChange.bind((0, _assertThisInitialized2["default"])(_this)));
     return _this;
   }
 
-  (0, _createClass2.default)(Search, [{
+  (0, _createClass2["default"])(Search, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       // in some cases (e.g. preact) the input may already be pre-populated
@@ -76,7 +72,7 @@ var Search = /*#__PURE__*/function (_React$PureComponent) {
         icon: _svgs.search.search,
         isSearching: false
       });else this.setState({
-        icon: _svgs.search.delete,
+        icon: _svgs.search["delete"],
         isSearching: true
       });
       this.props.onSearch(this.emojiIndex.search(value, {
@@ -125,20 +121,20 @@ var Search = /*#__PURE__*/function (_React$PureComponent) {
           isSearching = _this$state.isSearching,
           id = _this$state.id;
       var inputId = "emoji-mart-search-".concat(id);
-      return /*#__PURE__*/_react.default.createElement("section", {
+      return _react["default"].createElement("section", {
         className: "emoji-mart-search",
         "aria-label": i18n.search
-      }, /*#__PURE__*/_react.default.createElement("input", {
+      }, _react["default"].createElement("input", {
         id: inputId,
         ref: this.setRef,
         type: "search",
         onChange: this.handleChange,
         placeholder: i18n.search,
         autoFocus: autoFocus
-      }), /*#__PURE__*/_react.default.createElement("label", {
+      }), _react["default"].createElement("label", {
         className: "emoji-mart-sr-only",
         htmlFor: inputId
-      }, i18n.search), /*#__PURE__*/_react.default.createElement("button", {
+      }, i18n.search), _react["default"].createElement("button", {
         className: "emoji-mart-search-icon",
         onClick: this.clear,
         onKeyUp: this.handleKeyUp,
@@ -148,16 +144,16 @@ var Search = /*#__PURE__*/function (_React$PureComponent) {
     }
   }]);
   return Search;
-}(_react.default.PureComponent);
+}(_react["default"].PureComponent);
 
-exports.default = Search;
+exports["default"] = Search;
 Search.propTypes
 /* remove-proptypes */
 = {
-  onSearch: _propTypes.default.func,
-  maxResults: _propTypes.default.number,
-  emojisToShowFilter: _propTypes.default.func,
-  autoFocus: _propTypes.default.bool
+  onSearch: _propTypes["default"].func,
+  maxResults: _propTypes["default"].number,
+  emojisToShowFilter: _propTypes["default"].func,
+  autoFocus: _propTypes["default"].bool
 };
 Search.defaultProps = {
   onSearch: function onSearch() {},

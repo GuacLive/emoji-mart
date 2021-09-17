@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _store = _interopRequireDefault(require("./store"));
 
@@ -15,7 +15,7 @@ var defaults = {};
 
 function init() {
   initialized = true;
-  frequently = _store.default.get('frequently');
+  frequently = _store["default"].get('frequently');
 }
 
 function add(emoji) {
@@ -25,9 +25,9 @@ function add(emoji) {
   frequently[id] || (frequently[id] = 0);
   frequently[id] += 1;
 
-  _store.default.set('last', id);
+  _store["default"].set('last', id);
 
-  _store.default.set('frequently', frequently);
+  _store["default"].set('frequently', frequently);
 }
 
 function get(perLine) {
@@ -59,7 +59,7 @@ function get(perLine) {
   }).reverse();
   var sliced = sorted.slice(0, quantity);
 
-  var last = _store.default.get('last');
+  var last = _store["default"].get('last');
 
   if (last && sliced.indexOf(last) == -1) {
     sliced.pop();
@@ -73,4 +73,4 @@ var _default = {
   add: add,
   get: get
 };
-exports.default = _default;
+exports["default"] = _default;

@@ -24,8 +24,16 @@ var _getPosition = function _getPosition(props) {
   var _getData2 = _getData(props),
       sheet_x = _getData2.sheet_x,
       sheet_y = _getData2.sheet_y,
-      multiplyX = 100 / (props.sheetColumns - 1),
-      multiplyY = 100 / (props.sheetRows - 1);
+      dataSheetColumns = _getData2.sheetColumns,
+      dataSheetRows = _getData2.sheetRows,
+      spriteUrl = _getData2.spriteUrl;
+
+  var sheetColumns = dataSheetColumns || props.sheetColumns;
+  var sheetRows = dataSheetRows || props.sheetRows;
+  var multiplyX = 100 / (sheetColumns - 1);
+  var multiplyY = 100 / (sheetRows - 1); // if (spriteUrl) {
+  //   console.log('custom emoji', props.emoji, 'sheet_x', sheet_x, 'sheet_y', sheet_y, 'multiplyX', multiplyX, 'multiplyY', multiplyY)
+  // }
 
   return "".concat(multiplyX * sheet_x, "% ").concat(multiplyY * sheet_y, "%");
 };
@@ -135,7 +143,7 @@ var NimbleEmoji = function NimbleEmoji(props) {
     title = short_names[0];
   }
 
-  if (props.native && unified) {
+  if (props["native"] && unified) {
     className += ' emoji-mart-emoji-native';
     style = {
       fontSize: props.size
@@ -157,13 +165,13 @@ var NimbleEmoji = function NimbleEmoji(props) {
     };
 
     if (data.spriteUrl) {
-      style = _objectSpread(_objectSpread({}, style), {}, {
+      style = _objectSpread({}, style, {
         backgroundImage: "url(".concat(data.spriteUrl, ")"),
-        backgroundSize: "".concat(100 * props.sheetColumns, "% ").concat(100 * props.sheetRows, "%"),
+        backgroundSize: "".concat(100 * data.sheetColumns, "% ").concat(100 * data.sheetRows, "%"),
         backgroundPosition: _getPosition(props)
       });
     } else {
-      style = _objectSpread(_objectSpread({}, style), {}, {
+      style = _objectSpread({}, style, {
         backgroundImage: "url(".concat(imageUrl, ")"),
         backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
@@ -207,7 +215,7 @@ var NimbleEmoji = function NimbleEmoji(props) {
     style = _convertStyleToCSS(style);
     return "<".concat(Tag.name, " style='").concat(style, "' aria-label='").concat(label, "' ").concat(title ? "title='".concat(title, "'") : '', " class='").concat(className, "'>").concat(children || '', "</").concat(Tag.name, ">");
   } else {
-    return /*#__PURE__*/React.createElement(Tag.name, _extends({
+    return React.createElement(Tag.name, _extends({
       onClick: function onClick(e) {
         return _handleClick(e, props);
       },
@@ -220,7 +228,7 @@ var NimbleEmoji = function NimbleEmoji(props) {
       "aria-label": label,
       title: title,
       className: className
-    }, Tag.props), /*#__PURE__*/React.createElement("span", {
+    }, Tag.props), React.createElement("span", {
       style: style
     }, children));
   }
@@ -228,7 +236,7 @@ var NimbleEmoji = function NimbleEmoji(props) {
 
 NimbleEmoji.propTypes
 /* remove-proptypes */
-= _objectSpread(_objectSpread({}, EmojiPropTypes), {}, {
+= _objectSpread({}, EmojiPropTypes, {
   data: PropTypes.object.isRequired
 });
 NimbleEmoji.defaultProps = EmojiDefaultProps;

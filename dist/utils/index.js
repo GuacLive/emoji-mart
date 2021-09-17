@@ -29,7 +29,7 @@ function unifiedToNative(unified) {
       codePoints = unicodes.map(function (u) {
     return "0x".concat(u);
   });
-  return _stringFromCodePoint.default.apply(null, codePoints);
+  return _stringFromCodePoint["default"].apply(null, codePoints);
 }
 
 function sanitize(emoji) {
@@ -42,6 +42,11 @@ function sanitize(emoji) {
       custom = emoji.custom,
       customCategory = emoji.customCategory,
       imageUrl = emoji.imageUrl,
+      spriteUrl = emoji.spriteUrl,
+      sheetColumns = emoji.sheetColumns,
+      sheetRows = emoji.sheetRows,
+      sheet_x = emoji.sheet_x,
+      sheet_y = emoji.sheet_y,
       id = emoji.id || short_names[0],
       colons = ":".concat(id, ":");
 
@@ -54,7 +59,12 @@ function sanitize(emoji) {
       emoticons: emoticons,
       custom: custom,
       customCategory: customCategory,
-      imageUrl: imageUrl
+      imageUrl: imageUrl,
+      spriteUrl: spriteUrl,
+      sheetColumns: sheetColumns,
+      sheetRows: sheetRows,
+      sheet_x: sheet_x,
+      sheet_y: sheet_y
     };
   }
 
@@ -70,7 +80,7 @@ function sanitize(emoji) {
     emoticons: emoticons,
     unified: unified.toLowerCase(),
     skin: skin_tone || (skin_variations ? 1 : null),
-    native: unifiedToNative(unified)
+    "native": unifiedToNative(unified)
   };
 }
 
@@ -223,7 +233,7 @@ function deepMerge(a, b) {
       value = b[key];
     }
 
-    if ((0, _typeof2.default)(value) === 'object') {
+    if ((0, _typeof2["default"])(value) === 'object') {
       value = deepMerge(originalValue, value);
     }
 

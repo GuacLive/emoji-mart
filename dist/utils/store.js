@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 var NAMESPACE = 'emoji-mart';
 var isLocalStorageSupported = typeof window !== 'undefined' && 'localStorage' in window;
 var getter;
@@ -63,4 +63,4 @@ var _default = {
   setNamespace: setNamespace,
   setHandlers: setHandlers
 };
-exports.default = _default;
+exports["default"] = _default;

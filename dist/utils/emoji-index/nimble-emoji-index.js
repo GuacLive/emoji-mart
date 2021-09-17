@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
@@ -17,9 +17,11 @@ var _data = require("../data");
 
 var _store = _interopRequireDefault(require("../store"));
 
-var NimbleEmojiIndex = /*#__PURE__*/function () {
+var NimbleEmojiIndex =
+/*#__PURE__*/
+function () {
   function NimbleEmojiIndex(data, set) {
-    (0, _classCallCheck2.default)(this, NimbleEmojiIndex);
+    (0, _classCallCheck2["default"])(this, NimbleEmojiIndex);
 
     if (data.compressed) {
       (0, _data.uncompress)(data);
@@ -35,7 +37,7 @@ var NimbleEmojiIndex = /*#__PURE__*/function () {
     this.buildIndex();
   }
 
-  (0, _createClass2.default)(NimbleEmojiIndex, [{
+  (0, _createClass2["default"])(NimbleEmojiIndex, [{
     key: "buildIndex",
     value: function buildIndex() {
       var _this = this;
@@ -120,7 +122,7 @@ var NimbleEmojiIndex = /*#__PURE__*/function () {
           custom = _ref$custom === void 0 ? [] : _ref$custom;
 
       if (this.customEmojisList != custom) this.addCustomToPool(custom, this.originalPool);
-      var skinTone = _store.default.get('skin') || 1;
+      var skinTone = _store["default"].get('skin') || 1;
       maxResults || (maxResults = 75);
       include || (include = []);
       exclude || (exclude = []);
@@ -170,10 +172,10 @@ var NimbleEmojiIndex = /*#__PURE__*/function () {
               length = 0;
 
           for (var charIndex = 0; charIndex < value.length; charIndex++) {
-            var char = value[charIndex];
+            var _char = value[charIndex];
             length++;
-            aIndex[char] || (aIndex[char] = {});
-            aIndex = aIndex[char];
+            aIndex[_char] || (aIndex[_char] = {});
+            aIndex = aIndex[_char];
 
             if (!aIndex.results) {
               (function () {
@@ -250,4 +252,4 @@ var NimbleEmojiIndex = /*#__PURE__*/function () {
   return NimbleEmojiIndex;
 }();
 
-exports.default = NimbleEmojiIndex;
+exports["default"] = NimbleEmojiIndex;

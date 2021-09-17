@@ -4,7 +4,9 @@ import { getData, getSanitizedData, intersect } from '..';
 import { uncompress } from '../data';
 import store from '../store';
 
-var NimbleEmojiIndex = /*#__PURE__*/function () {
+var NimbleEmojiIndex =
+/*#__PURE__*/
+function () {
   function NimbleEmojiIndex(data, set) {
     _classCallCheck(this, NimbleEmojiIndex);
 
@@ -157,10 +159,10 @@ var NimbleEmojiIndex = /*#__PURE__*/function () {
               length = 0;
 
           for (var charIndex = 0; charIndex < value.length; charIndex++) {
-            var char = value[charIndex];
+            var _char = value[charIndex];
             length++;
-            aIndex[char] || (aIndex[char] = {});
-            aIndex = aIndex[char];
+            aIndex[_char] || (aIndex[_char] = {});
+            aIndex = aIndex[_char];
 
             if (!aIndex.results) {
               (function () {

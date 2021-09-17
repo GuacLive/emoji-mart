@@ -5,13 +5,13 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _all = _interopRequireDefault(require("../../../data/all.json"));
 
 var _nimbleEmojiIndex = _interopRequireDefault(require("./nimble-emoji-index"));
 
-var emojiIndex = new _nimbleEmojiIndex.default(_all.default);
+var emojiIndex = new _nimbleEmojiIndex["default"](_all["default"]);
 var emojis = emojiIndex.emojis,
     emoticons = emojiIndex.emoticons;
 
@@ -24,4 +24,4 @@ var _default = {
   emojis: emojis,
   emoticons: emoticons
 };
-exports.default = _default;
+exports["default"] = _default;

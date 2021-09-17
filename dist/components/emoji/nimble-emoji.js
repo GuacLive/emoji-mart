@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
@@ -25,7 +25,7 @@ var _sharedDefaultProps = require("../../utils/shared-default-props");
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 var _getData = function _getData(props) {
   var emoji = props.emoji,
@@ -39,8 +39,16 @@ var _getPosition = function _getPosition(props) {
   var _getData2 = _getData(props),
       sheet_x = _getData2.sheet_x,
       sheet_y = _getData2.sheet_y,
-      multiplyX = 100 / (props.sheetColumns - 1),
-      multiplyY = 100 / (props.sheetRows - 1);
+      dataSheetColumns = _getData2.sheetColumns,
+      dataSheetRows = _getData2.sheetRows,
+      spriteUrl = _getData2.spriteUrl;
+
+  var sheetColumns = dataSheetColumns || props.sheetColumns;
+  var sheetRows = dataSheetRows || props.sheetRows;
+  var multiplyX = 100 / (sheetColumns - 1);
+  var multiplyY = 100 / (sheetRows - 1); // if (spriteUrl) {
+  //   console.log('custom emoji', props.emoji, 'sheet_x', sheet_x, 'sheet_y', sheet_y, 'multiplyX', multiplyX, 'multiplyY', multiplyY)
+  // }
 
   return "".concat(multiplyX * sheet_x, "% ").concat(multiplyY * sheet_y, "%");
 };
@@ -150,7 +158,7 @@ var NimbleEmoji = function NimbleEmoji(props) {
     title = short_names[0];
   }
 
-  if (props.native && unified) {
+  if (props["native"] && unified) {
     className += ' emoji-mart-emoji-native';
     style = {
       fontSize: props.size
@@ -172,13 +180,13 @@ var NimbleEmoji = function NimbleEmoji(props) {
     };
 
     if (data.spriteUrl) {
-      style = _objectSpread(_objectSpread({}, style), {}, {
+      style = _objectSpread({}, style, {
         backgroundImage: "url(".concat(data.spriteUrl, ")"),
-        backgroundSize: "".concat(100 * props.sheetColumns, "% ").concat(100 * props.sheetRows, "%"),
+        backgroundSize: "".concat(100 * data.sheetColumns, "% ").concat(100 * data.sheetRows, "%"),
         backgroundPosition: _getPosition(props)
       });
     } else {
-      style = _objectSpread(_objectSpread({}, style), {}, {
+      style = _objectSpread({}, style, {
         backgroundImage: "url(".concat(imageUrl, ")"),
         backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
@@ -222,7 +230,7 @@ var NimbleEmoji = function NimbleEmoji(props) {
     style = _convertStyleToCSS(style);
     return "<".concat(Tag.name, " style='").concat(style, "' aria-label='").concat(label, "' ").concat(title ? "title='".concat(title, "'") : '', " class='").concat(className, "'>").concat(children || '', "</").concat(Tag.name, ">");
   } else {
-    return /*#__PURE__*/_react.default.createElement(Tag.name, (0, _extends2.default)({
+    return _react["default"].createElement(Tag.name, (0, _extends2["default"])({
       onClick: function onClick(e) {
         return _handleClick(e, props);
       },
@@ -235,7 +243,7 @@ var NimbleEmoji = function NimbleEmoji(props) {
       "aria-label": label,
       title: title,
       className: className
-    }, Tag.props), /*#__PURE__*/_react.default.createElement("span", {
+    }, Tag.props), _react["default"].createElement("span", {
       style: style
     }, children));
   }
@@ -243,9 +251,9 @@ var NimbleEmoji = function NimbleEmoji(props) {
 
 NimbleEmoji.propTypes
 /* remove-proptypes */
-= _objectSpread(_objectSpread({}, _sharedProps.EmojiPropTypes), {}, {
-  data: _propTypes.default.object.isRequired
+= _objectSpread({}, _sharedProps.EmojiPropTypes, {
+  data: _propTypes["default"].object.isRequired
 });
 NimbleEmoji.defaultProps = _sharedDefaultProps.EmojiDefaultProps;
 var _default = NimbleEmoji;
-exports.default = _default;
+exports["default"] = _default;

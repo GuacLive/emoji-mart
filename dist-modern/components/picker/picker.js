@@ -12,13 +12,13 @@ import { PickerPropTypes } from '../../utils/shared-props';
 import { PickerDefaultProps } from '../../utils/shared-default-props';
 export default class Picker extends React.PureComponent {
   render() {
-    return /*#__PURE__*/React.createElement(NimblePicker, _extends({}, this.props, this.state));
+    return React.createElement(NimblePicker, _extends({}, this.props, this.state));
   }
 
 }
 Picker.propTypes
 /* remove-proptypes */
 = PickerPropTypes;
-Picker.defaultProps = _objectSpread(_objectSpread({}, PickerDefaultProps), {}, {
+Picker.defaultProps = _objectSpread({}, PickerDefaultProps, {
   data
 });

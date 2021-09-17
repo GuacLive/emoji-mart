@@ -1,30 +1,25 @@
 import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
 import _createClass from "@babel/runtime/helpers/createClass";
-import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
-import _inherits from "@babel/runtime/helpers/inherits";
 import _possibleConstructorReturn from "@babel/runtime/helpers/possibleConstructorReturn";
 import _getPrototypeOf from "@babel/runtime/helpers/getPrototypeOf";
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
+import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
+import _inherits from "@babel/runtime/helpers/inherits";
 import React from 'react';
 import PropTypes from 'prop-types';
 import NimbleEmoji from './emoji/nimble-emoji';
 import Skins from './skins';
 
-var SkinsEmoji = /*#__PURE__*/function (_Skins) {
+var SkinsEmoji =
+/*#__PURE__*/
+function (_Skins) {
   _inherits(SkinsEmoji, _Skins);
-
-  var _super = _createSuper(SkinsEmoji);
 
   function SkinsEmoji(props) {
     var _this;
 
     _classCallCheck(this, SkinsEmoji);
 
-    _this = _super.call(this, props);
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SkinsEmoji).call(this, props));
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -43,10 +38,10 @@ var SkinsEmoji = /*#__PURE__*/function (_Skins) {
 
       for (var skinTone = 1; skinTone <= 6; skinTone++) {
         var selected = skinTone === skin;
-        skinToneNodes.push( /*#__PURE__*/React.createElement("span", {
+        skinToneNodes.push(React.createElement("span", {
           key: "skin-tone-".concat(skinTone),
           className: "emoji-mart-skin-swatch custom".concat(selected ? ' selected' : '')
-        }, /*#__PURE__*/React.createElement("span", {
+        }, React.createElement("span", {
           onClick: this.handleClick,
           "data-skin": skinTone,
           className: "emoji-mart-skin-tone-".concat(skinTone)
@@ -55,16 +50,16 @@ var SkinsEmoji = /*#__PURE__*/function (_Skins) {
           data: data,
           skin: skinTone,
           backgroundImageFn: emojiProps.backgroundImageFn,
-          native: emojiProps.native,
+          "native": emojiProps["native"],
           set: emojiProps.set,
           sheetSize: emojiProps.sheetSize,
           size: 23
         }))));
       }
 
-      return /*#__PURE__*/React.createElement("div", {
+      return React.createElement("div", {
         className: "emoji-mart-skin-swatches custom".concat(opened ? ' opened' : '')
-      }, /*#__PURE__*/React.createElement("div", {
+      }, React.createElement("div", {
         className: "emoji-mart-skin-text".concat(opened ? ' opened' : '')
       }, i18n.skintext), skinToneNodes);
     }

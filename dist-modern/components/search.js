@@ -80,20 +80,20 @@ export default class Search extends React.PureComponent {
       id
     } = this.state;
     const inputId = `emoji-mart-search-${id}`;
-    return /*#__PURE__*/React.createElement("section", {
+    return React.createElement("section", {
       className: "emoji-mart-search",
       "aria-label": i18n.search
-    }, /*#__PURE__*/React.createElement("input", {
+    }, React.createElement("input", {
       id: inputId,
       ref: this.setRef,
       type: "search",
       onChange: this.handleChange,
       placeholder: i18n.search,
       autoFocus: autoFocus
-    }), /*#__PURE__*/React.createElement("label", {
+    }), React.createElement("label", {
       className: "emoji-mart-sr-only",
       htmlFor: inputId
-    }, i18n.search), /*#__PURE__*/React.createElement("button", {
+    }, i18n.search), React.createElement("button", {
       className: "emoji-mart-search-icon",
       onClick: this.clear,
       onKeyUp: this.handleKeyUp,

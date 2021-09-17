@@ -16,17 +16,17 @@ export default class NotFound extends React.PureComponent {
       notFound,
       notFoundEmoji
     } = this.props;
-    const component = notFound && notFound() || /*#__PURE__*/React.createElement("div", {
+    const component = notFound && notFound() || React.createElement("div", {
       className: "emoji-mart-no-results"
-    }, NimbleEmoji(_objectSpread(_objectSpread({
+    }, NimbleEmoji(_objectSpread({
       data: data
-    }, emojiProps), {}, {
+    }, emojiProps, {
       size: 38,
       emoji: notFoundEmoji,
       onOver: null,
       onLeave: null,
       onClick: null
-    })), /*#__PURE__*/React.createElement("div", {
+    })), React.createElement("div", {
       className: "emoji-mart-no-results-label"
     }, i18n.notfound));
     return component;

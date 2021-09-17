@@ -23,12 +23,20 @@ const _getData = props => {
 };
 
 const _getPosition = props => {
-  var {
+  const {
     sheet_x,
-    sheet_y
-  } = _getData(props),
-      multiplyX = 100 / (props.sheetColumns - 1),
-      multiplyY = 100 / (props.sheetRows - 1);
+    sheet_y,
+    sheetColumns: dataSheetColumns,
+    sheetRows: dataSheetRows,
+    spriteUrl
+  } = _getData(props);
+
+  const sheetColumns = dataSheetColumns || props.sheetColumns;
+  const sheetRows = dataSheetRows || props.sheetRows;
+  const multiplyX = 100 / (sheetColumns - 1);
+  const multiplyY = 100 / (sheetRows - 1); // if (spriteUrl) {
+  //   console.log('custom emoji', props.emoji, 'sheet_x', sheet_x, 'sheet_y', sheet_y, 'multiplyX', multiplyX, 'multiplyY', multiplyY)
+  // }
 
   return `${multiplyX * sheet_x}% ${multiplyY * sheet_y}%`;
 };
@@ -171,13 +179,13 @@ const NimbleEmoji = props => {
     };
 
     if (data.spriteUrl) {
-      style = _objectSpread(_objectSpread({}, style), {}, {
+      style = _objectSpread({}, style, {
         backgroundImage: `url(${data.spriteUrl})`,
-        backgroundSize: `${100 * props.sheetColumns}% ${100 * props.sheetRows}%`,
+        backgroundSize: `${100 * data.sheetColumns}% ${100 * data.sheetRows}%`,
         backgroundPosition: _getPosition(props)
       });
     } else {
-      style = _objectSpread(_objectSpread({}, style), {}, {
+      style = _objectSpread({}, style, {
         backgroundImage: `url(${imageUrl})`,
         backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
@@ -221,14 +229,14 @@ const NimbleEmoji = props => {
     style = _convertStyleToCSS(style);
     return `<${Tag.name} style='${style}' aria-label='${label}' ${title ? `title='${title}'` : ''} class='${className}'>${children || ''}</${Tag.name}>`;
   } else {
-    return /*#__PURE__*/React.createElement(Tag.name, _extends({
+    return React.createElement(Tag.name, _extends({
       onClick: e => _handleClick(e, props),
       onMouseEnter: e => _handleOver(e, props),
       onMouseLeave: e => _handleLeave(e, props),
       "aria-label": label,
       title: title,
       className: className
-    }, Tag.props), /*#__PURE__*/React.createElement("span", {
+    }, Tag.props), React.createElement("span", {
       style: style
     }, children));
   }
@@ -236,7 +244,7 @@ const NimbleEmoji = props => {
 
 NimbleEmoji.propTypes
 /* remove-proptypes */
-= _objectSpread(_objectSpread({}, EmojiPropTypes), {}, {
+= _objectSpread({}, EmojiPropTypes, {
   data: PropTypes.object.isRequired
 });
 NimbleEmoji.defaultProps = EmojiDefaultProps;

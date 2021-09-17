@@ -23,10 +23,10 @@ export default class SkinsEmoji extends Skins {
 
     for (let skinTone = 1; skinTone <= 6; skinTone++) {
       const selected = skinTone === skin;
-      skinToneNodes.push( /*#__PURE__*/React.createElement("span", {
+      skinToneNodes.push(React.createElement("span", {
         key: `skin-tone-${skinTone}`,
         className: `emoji-mart-skin-swatch custom${selected ? ' selected' : ''}`
-      }, /*#__PURE__*/React.createElement("span", {
+      }, React.createElement("span", {
         onClick: this.handleClick,
         "data-skin": skinTone,
         className: `emoji-mart-skin-tone-${skinTone}`
@@ -42,9 +42,9 @@ export default class SkinsEmoji extends Skins {
       }))));
     }
 
-    return /*#__PURE__*/React.createElement("div", {
+    return React.createElement("div", {
       className: `emoji-mart-skin-swatches custom${opened ? ' opened' : ''}`
-    }, /*#__PURE__*/React.createElement("div", {
+    }, React.createElement("div", {
       className: `emoji-mart-skin-text${opened ? ' opened' : ''}`
     }, i18n.skintext), skinToneNodes);
   }

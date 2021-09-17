@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
@@ -13,13 +13,13 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/cl
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
-var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
 var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
 
 var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -27,26 +27,22 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _skins = _interopRequireDefault(require("./skins"));
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-var SkinsDot = /*#__PURE__*/function (_Skins) {
-  (0, _inherits2.default)(SkinsDot, _Skins);
-
-  var _super = _createSuper(SkinsDot);
+var SkinsDot =
+/*#__PURE__*/
+function (_Skins) {
+  (0, _inherits2["default"])(SkinsDot, _Skins);
 
   function SkinsDot(props) {
     var _this;
 
-    (0, _classCallCheck2.default)(this, SkinsDot);
-    _this = _super.call(this, props);
-    _this.handleClick = _this.handleClick.bind((0, _assertThisInitialized2.default)(_this));
-    _this.handleKeyDown = _this.handleKeyDown.bind((0, _assertThisInitialized2.default)(_this));
+    (0, _classCallCheck2["default"])(this, SkinsDot);
+    _this = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(SkinsDot).call(this, props));
+    _this.handleClick = _this.handleClick.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.handleKeyDown = _this.handleKeyDown.bind((0, _assertThisInitialized2["default"])(_this));
     return _this;
   }
 
-  (0, _createClass2.default)(SkinsDot, [{
+  (0, _createClass2["default"])(SkinsDot, [{
     key: "handleKeyDown",
     value: function handleKeyDown(event) {
       // if either enter or space is pressed, then execute
@@ -67,14 +63,14 @@ var SkinsDot = /*#__PURE__*/function (_Skins) {
       for (var skinTone = 1; skinTone <= 6; skinTone++) {
         var selected = skinTone === skin;
         var visible = opened || selected;
-        skinToneNodes.push( /*#__PURE__*/_react.default.createElement("span", (0, _extends2.default)({
+        skinToneNodes.push(_react["default"].createElement("span", (0, _extends2["default"])({
           key: "skin-tone-".concat(skinTone),
           className: "emoji-mart-skin-swatch".concat(selected ? ' selected' : ''),
           "aria-label": i18n.skintones[skinTone],
           "aria-hidden": !visible
         }, opened ? {
           role: 'menuitem'
-        } : {}), /*#__PURE__*/_react.default.createElement("span", (0, _extends2.default)({
+        } : {}), _react["default"].createElement("span", (0, _extends2["default"])({
           onClick: this.handleClick,
           onKeyDown: this.handleKeyDown,
           role: "button"
@@ -92,24 +88,24 @@ var SkinsDot = /*#__PURE__*/function (_Skins) {
         }))));
       }
 
-      return /*#__PURE__*/_react.default.createElement("section", {
+      return _react["default"].createElement("section", {
         className: "emoji-mart-skin-swatches".concat(opened ? ' opened' : ''),
         "aria-label": i18n.skintext
-      }, /*#__PURE__*/_react.default.createElement("div", opened ? {
+      }, _react["default"].createElement("div", opened ? {
         role: 'menubar'
       } : {}, skinToneNodes));
     }
   }]);
   return SkinsDot;
-}(_skins.default);
+}(_skins["default"]);
 
-exports.default = SkinsDot;
+exports["default"] = SkinsDot;
 SkinsDot.propTypes
 /* remove-proptypes */
 = {
-  onChange: _propTypes.default.func,
-  skin: _propTypes.default.number.isRequired,
-  i18n: _propTypes.default.object
+  onChange: _propTypes["default"].func,
+  skin: _propTypes["default"].number.isRequired,
+  i18n: _propTypes["default"].object
 };
 SkinsDot.defaultProps = {
   onChange: function onChange() {}

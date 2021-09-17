@@ -23,7 +23,7 @@ var Emoji = function Emoji(props) {
 Emoji.propTypes
 /* remove-proptypes */
 = EmojiPropTypes;
-Emoji.defaultProps = _objectSpread(_objectSpread({}, EmojiDefaultProps), {}, {
+Emoji.defaultProps = _objectSpread({}, EmojiDefaultProps, {
   data: data
 });
 export default Emoji;

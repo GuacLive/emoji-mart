@@ -30,14 +30,14 @@ export default class SkinsDot extends Skins {
     for (let skinTone = 1; skinTone <= 6; skinTone++) {
       const selected = skinTone === skin;
       const visible = opened || selected;
-      skinToneNodes.push( /*#__PURE__*/React.createElement("span", _extends({
+      skinToneNodes.push(React.createElement("span", _extends({
         key: `skin-tone-${skinTone}`,
         className: `emoji-mart-skin-swatch${selected ? ' selected' : ''}`,
         "aria-label": i18n.skintones[skinTone],
         "aria-hidden": !visible
       }, opened ? {
         role: 'menuitem'
-      } : {}), /*#__PURE__*/React.createElement("span", _extends({
+      } : {}), React.createElement("span", _extends({
         onClick: this.handleClick,
         onKeyDown: this.handleKeyDown,
         role: "button"
@@ -55,10 +55,10 @@ export default class SkinsDot extends Skins {
       }))));
     }
 
-    return /*#__PURE__*/React.createElement("section", {
+    return React.createElement("section", {
       className: `emoji-mart-skin-swatches${opened ? ' opened' : ''}`,
       "aria-label": i18n.skintext
-    }, /*#__PURE__*/React.createElement("div", opened ? {
+    }, React.createElement("div", opened ? {
       role: 'menubar'
     } : {}, skinToneNodes));
   }

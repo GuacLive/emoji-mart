@@ -7,7 +7,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _toConsumableArray2 = _interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));
 
@@ -17,13 +17,13 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/cl
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
-var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
 var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
 
 var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -57,13 +57,9 @@ var _notFound = _interopRequireDefault(require("../not-found"));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-var gridRef = /*#__PURE__*/_react.default.createRef();
+var gridRef = _react["default"].createRef();
 
 var I18N = {
   search: 'Search',
@@ -96,16 +92,16 @@ var I18N = {
   }
 };
 
-var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
-  (0, _inherits2.default)(NimblePicker, _React$PureComponent);
-
-  var _super = _createSuper(NimblePicker);
+var NimblePicker =
+/*#__PURE__*/
+function (_React$PureComponent) {
+  (0, _inherits2["default"])(NimblePicker, _React$PureComponent);
 
   function NimblePicker(props) {
     var _this;
 
-    (0, _classCallCheck2.default)(this, NimblePicker);
-    _this = _super.call(this, props);
+    (0, _classCallCheck2["default"])(this, NimblePicker);
+    _this = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(NimblePicker).call(this, props));
     _this.CUSTOM = [];
     _this.RECENT_CATEGORY = {
       id: 'recent',
@@ -149,7 +145,7 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
 
         var category = customCategories[emoji.customCategory];
 
-        var customEmoji = _objectSpread(_objectSpread({}, emoji), {}, {
+        var customEmoji = _objectSpread({}, emoji, {
           // `<Category />` expects emoji to have an `id`.
           id: emoji.short_names[0],
           custom: true
@@ -226,23 +222,23 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
 
     _this.categories.unshift(_this.SEARCH_CATEGORY);
 
-    _this.setAnchorsRef = _this.setAnchorsRef.bind((0, _assertThisInitialized2.default)(_this));
-    _this.handleAnchorClick = _this.handleAnchorClick.bind((0, _assertThisInitialized2.default)(_this));
-    _this.setSearchRef = _this.setSearchRef.bind((0, _assertThisInitialized2.default)(_this));
-    _this.handleSearch = _this.handleSearch.bind((0, _assertThisInitialized2.default)(_this));
-    _this.handleScrollPaint = _this.handleScrollPaint.bind((0, _assertThisInitialized2.default)(_this));
-    _this.handleEmojiOver = _this.handleEmojiOver.bind((0, _assertThisInitialized2.default)(_this));
-    _this.handleEmojiLeave = _this.handleEmojiLeave.bind((0, _assertThisInitialized2.default)(_this));
-    _this.handleEmojiClick = _this.handleEmojiClick.bind((0, _assertThisInitialized2.default)(_this));
-    _this.handleEmojiSelect = _this.handleEmojiSelect.bind((0, _assertThisInitialized2.default)(_this));
-    _this.setPreviewRef = _this.setPreviewRef.bind((0, _assertThisInitialized2.default)(_this));
-    _this.handleSkinChange = _this.handleSkinChange.bind((0, _assertThisInitialized2.default)(_this));
-    _this.handleKeyDown = _this.handleKeyDown.bind((0, _assertThisInitialized2.default)(_this));
-    _this.handleDarkMatchMediaChange = _this.handleDarkMatchMediaChange.bind((0, _assertThisInitialized2.default)(_this));
+    _this.setAnchorsRef = _this.setAnchorsRef.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.handleAnchorClick = _this.handleAnchorClick.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.setSearchRef = _this.setSearchRef.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.handleSearch = _this.handleSearch.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.handleScrollPaint = _this.handleScrollPaint.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.handleEmojiOver = _this.handleEmojiOver.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.handleEmojiLeave = _this.handleEmojiLeave.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.handleEmojiClick = _this.handleEmojiClick.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.handleEmojiSelect = _this.handleEmojiSelect.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.setPreviewRef = _this.setPreviewRef.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.handleSkinChange = _this.handleSkinChange.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.handleKeyDown = _this.handleKeyDown.bind((0, _assertThisInitialized2["default"])(_this));
+    _this.handleDarkMatchMediaChange = _this.handleDarkMatchMediaChange.bind((0, _assertThisInitialized2["default"])(_this));
     return _this;
   }
 
-  (0, _createClass2.default)(NimblePicker, [{
+  (0, _createClass2["default"])(NimblePicker, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
@@ -349,7 +345,7 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
     key: "handleEmojiSelect",
     value: function handleEmojiSelect(emoji) {
       this.props.onSelect(emoji);
-      if (!this.hideRecent && !this.props.recent) _frequently.default.add(emoji); // var component = this.categoryRefs['category-1']
+      if (!this.hideRecent && !this.props.recent) _frequently["default"].add(emoji); // var component = this.categoryRefs['category-1']
       // if (component) {
       //   let maxMargin = component.maxMargin
       //   if (this.props.enableFrequentEmojiSort) {
@@ -447,7 +443,7 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
           onSkinChange = this.props.onSkinChange;
       this.setState(newState);
 
-      _store.default.update(newState);
+      _store["default"].update(newState);
 
       onSkinChange(skin);
     }
@@ -508,7 +504,7 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
           title = _this$props.title,
           emoji = _this$props.emoji,
           color = _this$props.color,
-          native = _this$props.native,
+          _native = _this$props["native"],
           backgroundImageFn = _this$props.backgroundImageFn,
           emojisToShowFilter = _this$props.emojisToShowFilter,
           showPreview = _this$props.showPreview,
@@ -524,16 +520,16 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
           notFoundEmoji = _this$props.notFoundEmoji;
       var width = perLine * (emojiSize + 12) + 12 + 2 + (0, _utils.measureScrollbar)();
       var theme = this.getPreferredTheme();
-      var skin = this.props.skin || this.state.skin || _store.default.get('skin') || this.props.defaultSkin;
+      var skin = this.props.skin || this.state.skin || _store["default"].get('skin') || this.props.defaultSkin;
       var emojiProps = {
-        native: native,
+        "native": _native,
         skin: skin,
         size: emojiSize,
         set: set,
         sheetSize: sheetSize,
         sheetColumns: sheetColumns,
         sheetRows: sheetRows,
-        forceSize: native,
+        forceSize: _native,
         tooltip: emojiTooltip,
         backgroundImageFn: backgroundImageFn,
         useButton: useButton,
@@ -556,7 +552,7 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
         var custom = category.id === _this4.RECENT_CATEGORY.id ? _this4.CUSTOM : undefined;
 
         if (category.name === 'Recent') {
-          var frequentlyUsed = recent || _frequently.default.get(perLine);
+          var frequentlyUsed = recent || _frequently["default"].get(perLine);
 
           if (frequentlyUsed.length) {
             emojis = frequentlyUsed.map(function (id) {
@@ -589,7 +585,7 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
           cat_id: category.id,
           cat_name: category.name
         };
-        titleIndexes[catObj.cat_id] = _objectSpread(_objectSpread({}, catObj), {}, {
+        titleIndexes[catObj.cat_id] = _objectSpread({}, catObj, {
           row: Math.ceil(allEmojis.length / perLine),
           col: allEmojis.length % perLine
         });
@@ -601,19 +597,19 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
           });
         };
 
-        allEmojis = [].concat((0, _toConsumableArray2.default)(allEmojis), (0, _toConsumableArray2.default)(makeGap(allEmojis.length === 0 ? 0 : missing)), [catObj], (0, _toConsumableArray2.default)(makeGap(perLine - 1)), (0, _toConsumableArray2.default)(emojis));
+        allEmojis = [].concat((0, _toConsumableArray2["default"])(allEmojis), (0, _toConsumableArray2["default"])(makeGap(allEmojis.length === 0 ? 0 : missing)), [catObj], (0, _toConsumableArray2["default"])(makeGap(perLine - 1)), (0, _toConsumableArray2["default"])(emojis));
       });
       var rowCount = Array.isArray(allEmojis) ? Math.ceil(allEmojis.length / perLine) : 0;
-      return /*#__PURE__*/_react.default.createElement("section", {
+      return _react["default"].createElement("section", {
         style: _objectSpread({
           width: width
         }, style),
         className: "emoji-mart emoji-mart-".concat(theme),
         "aria-label": title,
         onKeyDown: this.handleKeyDown
-      }, /*#__PURE__*/_react.default.createElement("div", {
+      }, _react["default"].createElement("div", {
         className: "emoji-mart-bar"
-      }, /*#__PURE__*/_react.default.createElement(_anchors.default, {
+      }, _react["default"].createElement(_anchors["default"], {
         ref: this.setAnchorsRef,
         data: this.data,
         i18n: this.i18n,
@@ -622,7 +618,7 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
         onAnchorClick: this.handleAnchorClick,
         icons: this.icons,
         titleIndexes: titleIndexes
-      })), /*#__PURE__*/_react.default.createElement(_search.default, {
+      })), _react["default"].createElement(_search["default"], {
         ref: this.setSearchRef,
         onSearch: this.handleSearch,
         data: this.data,
@@ -632,9 +628,9 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
         exclude: exclude,
         custom: this.CUSTOM,
         autoFocus: autoFocus
-      }), /*#__PURE__*/_react.default.createElement("div", {
+      }), _react["default"].createElement("div", {
         className: "emoji-mart-scroll"
-      }, /*#__PURE__*/_react.default.createElement(_reactWindow.FixedSizeGrid, {
+      }, _react["default"].createElement(_reactWindow.FixedSizeGrid, {
         ref: gridRef,
         columnCount: perLine,
         columnWidth: 36,
@@ -643,7 +639,7 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
         width: perLine * 36 + 10,
         rowCount: rowCount,
         onScroll: this.handleScrollPaint(titleIndexes)
-      }, (0, _renderEmoji.default)({
+      }, (0, _renderEmoji["default"])({
         activeCategory: this.activeCategory,
         i18n: this.i18n,
         data: this.data,
@@ -652,15 +648,15 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
         emojiProps: emojiProps
       })), allEmojis && !allEmojis.filter(function (a) {
         return a && !a.cat_id;
-      }).length && /*#__PURE__*/_react.default.createElement(_notFound.default, {
+      }).length && _react["default"].createElement(_notFound["default"], {
         i18n: this.i18n,
         notFound: notFound,
         notFoundEmoji: notFoundEmoji,
         data: this.data,
         emojiProps: emojiProps
-      })), (showPreview || showSkinTones) && /*#__PURE__*/_react.default.createElement("div", {
+      })), (showPreview || showSkinTones) && _react["default"].createElement("div", {
         className: "emoji-mart-bar"
-      }, /*#__PURE__*/_react.default.createElement(_preview.default, {
+      }, _react["default"].createElement(_preview["default"], {
         ref: this.setPreviewRef,
         data: this.data,
         title: title,
@@ -668,7 +664,7 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
         showSkinTones: showSkinTones,
         showPreview: showPreview,
         emojiProps: {
-          native: native,
+          "native": _native,
           size: 38,
           skin: skin,
           set: set,
@@ -687,12 +683,12 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
     }
   }]);
   return NimblePicker;
-}(_react.default.PureComponent);
+}(_react["default"].PureComponent);
 
-exports.default = NimblePicker;
+exports["default"] = NimblePicker;
 NimblePicker.propTypes
 /* remove-proptypes */
-= _objectSpread(_objectSpread({}, _sharedProps.PickerPropTypes), {}, {
-  data: _propTypes.default.object.isRequired
+= _objectSpread({}, _sharedProps.PickerPropTypes, {
+  data: _propTypes["default"].object.isRequired
 });
 NimblePicker.defaultProps = _objectSpread({}, _sharedDefaultProps.PickerDefaultProps);

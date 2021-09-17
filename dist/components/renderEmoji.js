@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
@@ -15,7 +15,7 @@ var _nimbleEmoji = _interopRequireDefault(require("./emoji/nimble-emoji"));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 var _default = function _default(_ref) {
   var i18n = _ref.i18n,
@@ -47,13 +47,13 @@ var _default = function _default(_ref) {
         };
       }
 
-      return /*#__PURE__*/_react.default.createElement("div", {
-        style: _objectSpread(_objectSpread({}, style), {}, {
+      return _react["default"].createElement("div", {
+        style: _objectSpread({}, style, {
           width: '100%'
         }),
         "data-name": label,
         className: "emoji-mart-category-label"
-      }, /*#__PURE__*/_react.default.createElement("span", {
+      }, _react["default"].createElement("span", {
         style: labelSpanStyles,
         "aria-hidden": true
         /* already labeled by the section aria-label */
@@ -61,10 +61,10 @@ var _default = function _default(_ref) {
       }, label));
     };
 
-    return isCat ? renderLabel() : /*#__PURE__*/_react.default.createElement("li", {
+    return isCat ? renderLabel() : _react["default"].createElement("li", {
       style: style,
       key: emoji.short_names && emoji.short_names.join('_') || emoji
-    }, (0, _nimbleEmoji.default)(_objectSpread({
+    }, (0, _nimbleEmoji["default"])(_objectSpread({
       emoji: emoji,
       data: data
     }, emojiProps)));
@@ -73,4 +73,4 @@ var _default = function _default(_ref) {
   return Emoji;
 };
 
-exports.default = _default;
+exports["default"] = _default;

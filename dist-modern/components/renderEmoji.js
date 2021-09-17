@@ -35,13 +35,13 @@ export default (({
         };
       }
 
-      return /*#__PURE__*/React.createElement("div", {
-        style: _objectSpread(_objectSpread({}, style), {}, {
+      return React.createElement("div", {
+        style: _objectSpread({}, style, {
           width: '100%'
         }),
         "data-name": label,
         className: "emoji-mart-category-label"
-      }, /*#__PURE__*/React.createElement("span", {
+      }, React.createElement("span", {
         style: labelSpanStyles,
         "aria-hidden": true
         /* already labeled by the section aria-label */
@@ -49,7 +49,7 @@ export default (({
       }, label));
     };
 
-    return isCat ? renderLabel() : /*#__PURE__*/React.createElement("li", {
+    return isCat ? renderLabel() : React.createElement("li", {
       style: style,
       key: emoji.short_names && emoji.short_names.join('_') || emoji
     }, NimbleEmoji(_objectSpread({

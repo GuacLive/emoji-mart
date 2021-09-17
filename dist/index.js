@@ -8,25 +8,25 @@ Object.defineProperty(exports, "__esModule", {
 Object.defineProperty(exports, "emojiIndex", {
   enumerable: true,
   get: function get() {
-    return _emojiIndex.default;
+    return _emojiIndex["default"];
   }
 });
 Object.defineProperty(exports, "NimbleEmojiIndex", {
   enumerable: true,
   get: function get() {
-    return _nimbleEmojiIndex.default;
+    return _nimbleEmojiIndex["default"];
   }
 });
 Object.defineProperty(exports, "store", {
   enumerable: true,
   get: function get() {
-    return _store.default;
+    return _store["default"];
   }
 });
 Object.defineProperty(exports, "frequently", {
   enumerable: true,
   get: function get() {
-    return _frequently.default;
+    return _frequently["default"];
   }
 });
 Object.defineProperty(exports, "getEmojiDataFromNative", {
@@ -38,31 +38,31 @@ Object.defineProperty(exports, "getEmojiDataFromNative", {
 Object.defineProperty(exports, "Picker", {
   enumerable: true,
   get: function get() {
-    return _picker.default;
+    return _picker["default"];
   }
 });
 Object.defineProperty(exports, "NimblePicker", {
   enumerable: true,
   get: function get() {
-    return _nimblePicker.default;
+    return _nimblePicker["default"];
   }
 });
 Object.defineProperty(exports, "Emoji", {
   enumerable: true,
   get: function get() {
-    return _emoji.default;
+    return _emoji["default"];
   }
 });
 Object.defineProperty(exports, "NimbleEmoji", {
   enumerable: true,
   get: function get() {
-    return _nimbleEmoji.default;
+    return _nimbleEmoji["default"];
   }
 });
 Object.defineProperty(exports, "renderEmoji", {
   enumerable: true,
   get: function get() {
-    return _renderEmoji.default;
+    return _renderEmoji["default"];
   }
 });
 

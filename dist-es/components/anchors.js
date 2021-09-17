@@ -1,28 +1,23 @@
 import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
 import _createClass from "@babel/runtime/helpers/createClass";
-import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
-import _inherits from "@babel/runtime/helpers/inherits";
 import _possibleConstructorReturn from "@babel/runtime/helpers/possibleConstructorReturn";
 import _getPrototypeOf from "@babel/runtime/helpers/getPrototypeOf";
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
+import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
+import _inherits from "@babel/runtime/helpers/inherits";
 import React from 'react';
 import PropTypes from 'prop-types';
 
-var Anchors = /*#__PURE__*/function (_React$PureComponent) {
+var Anchors =
+/*#__PURE__*/
+function (_React$PureComponent) {
   _inherits(Anchors, _React$PureComponent);
-
-  var _super = _createSuper(Anchors);
 
   function Anchors(props) {
     var _this;
 
     _classCallCheck(this, Anchors);
 
-    _this = _super.call(this, props);
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Anchors).call(this, props));
     var defaultCategory = props.categories.filter(function (category) {
       return category.first;
     })[0];
@@ -55,7 +50,7 @@ var Anchors = /*#__PURE__*/function (_React$PureComponent) {
           i18n = _this$props2.i18n,
           icons = _this$props2.icons,
           selected = this.state.selected;
-      return /*#__PURE__*/React.createElement("nav", {
+      return React.createElement("nav", {
         className: "emoji-mart-anchors",
         "aria-label": i18n.categorieslabel
       }, categories.map(function (category, i) {
@@ -69,7 +64,7 @@ var Anchors = /*#__PURE__*/function (_React$PureComponent) {
         }
 
         var iconId = id.startsWith('custom-') ? 'custom' : id;
-        return /*#__PURE__*/React.createElement("button", {
+        return React.createElement("button", {
           key: id,
           "aria-label": i18n.categories[iconId],
           title: i18n.categories[iconId],
@@ -80,9 +75,9 @@ var Anchors = /*#__PURE__*/function (_React$PureComponent) {
           style: {
             color: isSelected ? color : null
           }
-        }, /*#__PURE__*/React.createElement("div", {
+        }, React.createElement("div", {
           className: "emoji-mart-anchor-icon"
-        }, icons.categories[iconId]()), /*#__PURE__*/React.createElement("span", {
+        }, icons.categories[iconId]()), React.createElement("span", {
           className: "emoji-mart-anchor-bar",
           style: {
             backgroundColor: color

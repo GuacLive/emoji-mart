@@ -1,14 +1,9 @@
 import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
 import _createClass from "@babel/runtime/helpers/createClass";
-import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
-import _inherits from "@babel/runtime/helpers/inherits";
 import _possibleConstructorReturn from "@babel/runtime/helpers/possibleConstructorReturn";
 import _getPrototypeOf from "@babel/runtime/helpers/getPrototypeOf";
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
+import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
+import _inherits from "@babel/runtime/helpers/inherits";
 import React from 'react';
 import PropTypes from 'prop-types';
 import { search as icons } from '../svgs';
@@ -16,17 +11,17 @@ import NimbleEmojiIndex from '../utils/emoji-index/nimble-emoji-index';
 import { throttleIdleTask } from '../utils/index';
 var id = 0;
 
-var Search = /*#__PURE__*/function (_React$PureComponent) {
+var Search =
+/*#__PURE__*/
+function (_React$PureComponent) {
   _inherits(Search, _React$PureComponent);
-
-  var _super = _createSuper(Search);
 
   function Search(props) {
     var _this;
 
     _classCallCheck(this, Search);
 
-    _this = _super.call(this, props);
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Search).call(this, props));
     _this.state = {
       icon: icons.search,
       isSearching: false,
@@ -58,7 +53,7 @@ var Search = /*#__PURE__*/function (_React$PureComponent) {
         icon: icons.search,
         isSearching: false
       });else this.setState({
-        icon: icons.delete,
+        icon: icons["delete"],
         isSearching: true
       });
       this.props.onSearch(this.emojiIndex.search(value, {
@@ -107,20 +102,20 @@ var Search = /*#__PURE__*/function (_React$PureComponent) {
           isSearching = _this$state.isSearching,
           id = _this$state.id;
       var inputId = "emoji-mart-search-".concat(id);
-      return /*#__PURE__*/React.createElement("section", {
+      return React.createElement("section", {
         className: "emoji-mart-search",
         "aria-label": i18n.search
-      }, /*#__PURE__*/React.createElement("input", {
+      }, React.createElement("input", {
         id: inputId,
         ref: this.setRef,
         type: "search",
         onChange: this.handleChange,
         placeholder: i18n.search,
         autoFocus: autoFocus
-      }), /*#__PURE__*/React.createElement("label", {
+      }), React.createElement("label", {
         className: "emoji-mart-sr-only",
         htmlFor: inputId
-      }, i18n.search), /*#__PURE__*/React.createElement("button", {
+      }, i18n.search), React.createElement("button", {
         className: "emoji-mart-search-icon",
         onClick: this.clear,
         onKeyUp: this.handleKeyUp,

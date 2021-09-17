@@ -19,7 +19,7 @@ import Preview from '../preview';
 import Search from '../search';
 import { PickerDefaultProps } from '../../utils/shared-default-props';
 import NotFound from '../not-found';
-const gridRef = /*#__PURE__*/React.createRef();
+const gridRef = React.createRef();
 const I18N = {
   search: 'Search',
   clear: 'Clear',
@@ -96,7 +96,7 @@ export default class NimblePicker extends React.PureComponent {
 
         const category = customCategories[emoji.customCategory];
 
-        const customEmoji = _objectSpread(_objectSpread({}, emoji), {}, {
+        const customEmoji = _objectSpread({}, emoji, {
           // `<Category />` expects emoji to have an `id`.
           id: emoji.short_names[0],
           custom: true
@@ -504,7 +504,7 @@ export default class NimblePicker extends React.PureComponent {
         cat_id: category.id,
         cat_name: category.name
       };
-      titleIndexes[catObj.cat_id] = _objectSpread(_objectSpread({}, catObj), {}, {
+      titleIndexes[catObj.cat_id] = _objectSpread({}, catObj, {
         row: Math.ceil(allEmojis.length / perLine),
         col: allEmojis.length % perLine
       });
@@ -517,16 +517,16 @@ export default class NimblePicker extends React.PureComponent {
       allEmojis = [...allEmojis, ...makeGap(allEmojis.length === 0 ? 0 : missing), catObj, ...makeGap(perLine - 1), ...emojis];
     });
     const rowCount = Array.isArray(allEmojis) ? Math.ceil(allEmojis.length / perLine) : 0;
-    return /*#__PURE__*/React.createElement("section", {
+    return React.createElement("section", {
       style: _objectSpread({
         width: width
       }, style),
       className: `emoji-mart emoji-mart-${theme}`,
       "aria-label": title,
       onKeyDown: this.handleKeyDown
-    }, /*#__PURE__*/React.createElement("div", {
+    }, React.createElement("div", {
       className: "emoji-mart-bar"
-    }, /*#__PURE__*/React.createElement(Anchors, {
+    }, React.createElement(Anchors, {
       ref: this.setAnchorsRef,
       data: this.data,
       i18n: this.i18n,
@@ -535,7 +535,7 @@ export default class NimblePicker extends React.PureComponent {
       onAnchorClick: this.handleAnchorClick,
       icons: this.icons,
       titleIndexes: titleIndexes
-    })), /*#__PURE__*/React.createElement(Search, {
+    })), React.createElement(Search, {
       ref: this.setSearchRef,
       onSearch: this.handleSearch,
       data: this.data,
@@ -545,9 +545,9 @@ export default class NimblePicker extends React.PureComponent {
       exclude: exclude,
       custom: this.CUSTOM,
       autoFocus: autoFocus
-    }), /*#__PURE__*/React.createElement("div", {
+    }), React.createElement("div", {
       className: "emoji-mart-scroll"
-    }, /*#__PURE__*/React.createElement(Grid, {
+    }, React.createElement(Grid, {
       ref: gridRef,
       columnCount: perLine,
       columnWidth: 36,
@@ -563,15 +563,15 @@ export default class NimblePicker extends React.PureComponent {
       emojis: allEmojis || [],
       perLine,
       emojiProps
-    })), allEmojis && !allEmojis.filter(a => a && !a.cat_id).length && /*#__PURE__*/React.createElement(NotFound, {
+    })), allEmojis && !allEmojis.filter(a => a && !a.cat_id).length && React.createElement(NotFound, {
       i18n: this.i18n,
       notFound: notFound,
       notFoundEmoji: notFoundEmoji,
       data: this.data,
       emojiProps: emojiProps
-    })), (showPreview || showSkinTones) && /*#__PURE__*/React.createElement("div", {
+    })), (showPreview || showSkinTones) && React.createElement("div", {
       className: "emoji-mart-bar"
-    }, /*#__PURE__*/React.createElement(Preview, {
+    }, React.createElement(Preview, {
       ref: this.setPreviewRef,
       data: this.data,
       title: title,
@@ -600,7 +600,7 @@ export default class NimblePicker extends React.PureComponent {
 }
 NimblePicker.propTypes
 /* remove-proptypes */
-= _objectSpread(_objectSpread({}, PickerPropTypes), {}, {
+= _objectSpread({}, PickerPropTypes, {
   data: PropTypes.object.isRequired
 });
 NimblePicker.defaultProps = _objectSpread({}, PickerDefaultProps);

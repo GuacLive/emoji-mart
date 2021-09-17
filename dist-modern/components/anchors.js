@@ -31,7 +31,7 @@ export default class Anchors extends React.PureComponent {
         {
       selected
     } = this.state;
-    return /*#__PURE__*/React.createElement("nav", {
+    return React.createElement("nav", {
       className: "emoji-mart-anchors",
       "aria-label": i18n.categorieslabel
     }, categories.map((category, i) => {
@@ -47,7 +47,7 @@ export default class Anchors extends React.PureComponent {
       }
 
       const iconId = id.startsWith('custom-') ? 'custom' : id;
-      return /*#__PURE__*/React.createElement("button", {
+      return React.createElement("button", {
         key: id,
         "aria-label": i18n.categories[iconId],
         title: i18n.categories[iconId],
@@ -58,9 +58,9 @@ export default class Anchors extends React.PureComponent {
         style: {
           color: isSelected ? color : null
         }
-      }, /*#__PURE__*/React.createElement("div", {
+      }, React.createElement("div", {
         className: "emoji-mart-anchor-icon"
-      }, icons.categories[iconId]()), /*#__PURE__*/React.createElement("span", {
+      }, icons.categories[iconId]()), React.createElement("span", {
         className: "emoji-mart-anchor-bar",
         style: {
           backgroundColor: color

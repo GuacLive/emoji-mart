@@ -2,18 +2,14 @@ import _toConsumableArray from "@babel/runtime/helpers/toConsumableArray";
 import _defineProperty from "@babel/runtime/helpers/defineProperty";
 import _classCallCheck from "@babel/runtime/helpers/classCallCheck";
 import _createClass from "@babel/runtime/helpers/createClass";
-import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
-import _inherits from "@babel/runtime/helpers/inherits";
 import _possibleConstructorReturn from "@babel/runtime/helpers/possibleConstructorReturn";
 import _getPrototypeOf from "@babel/runtime/helpers/getPrototypeOf";
+import _assertThisInitialized from "@babel/runtime/helpers/assertThisInitialized";
+import _inherits from "@babel/runtime/helpers/inherits";
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -30,7 +26,7 @@ import Preview from '../preview';
 import Search from '../search';
 import { PickerDefaultProps } from '../../utils/shared-default-props';
 import NotFound from '../not-found';
-var gridRef = /*#__PURE__*/React.createRef();
+var gridRef = React.createRef();
 var I18N = {
   search: 'Search',
   clear: 'Clear',
@@ -62,17 +58,17 @@ var I18N = {
   }
 };
 
-var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
+var NimblePicker =
+/*#__PURE__*/
+function (_React$PureComponent) {
   _inherits(NimblePicker, _React$PureComponent);
-
-  var _super = _createSuper(NimblePicker);
 
   function NimblePicker(props) {
     var _this;
 
     _classCallCheck(this, NimblePicker);
 
-    _this = _super.call(this, props);
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(NimblePicker).call(this, props));
     _this.CUSTOM = [];
     _this.RECENT_CATEGORY = {
       id: 'recent',
@@ -116,7 +112,7 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
 
         var category = customCategories[emoji.customCategory];
 
-        var customEmoji = _objectSpread(_objectSpread({}, emoji), {}, {
+        var customEmoji = _objectSpread({}, emoji, {
           // `<Category />` expects emoji to have an `id`.
           id: emoji.short_names[0],
           custom: true
@@ -473,7 +469,7 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
           title = _this$props.title,
           emoji = _this$props.emoji,
           color = _this$props.color,
-          native = _this$props.native,
+          _native = _this$props["native"],
           backgroundImageFn = _this$props.backgroundImageFn,
           emojisToShowFilter = _this$props.emojisToShowFilter,
           showPreview = _this$props.showPreview,
@@ -491,14 +487,14 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
       var theme = this.getPreferredTheme();
       var skin = this.props.skin || this.state.skin || store.get('skin') || this.props.defaultSkin;
       var emojiProps = {
-        native: native,
+        "native": _native,
         skin: skin,
         size: emojiSize,
         set: set,
         sheetSize: sheetSize,
         sheetColumns: sheetColumns,
         sheetRows: sheetRows,
-        forceSize: native,
+        forceSize: _native,
         tooltip: emojiTooltip,
         backgroundImageFn: backgroundImageFn,
         useButton: useButton,
@@ -554,7 +550,7 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
           cat_id: category.id,
           cat_name: category.name
         };
-        titleIndexes[catObj.cat_id] = _objectSpread(_objectSpread({}, catObj), {}, {
+        titleIndexes[catObj.cat_id] = _objectSpread({}, catObj, {
           row: Math.ceil(allEmojis.length / perLine),
           col: allEmojis.length % perLine
         });
@@ -569,16 +565,16 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
         allEmojis = [].concat(_toConsumableArray(allEmojis), _toConsumableArray(makeGap(allEmojis.length === 0 ? 0 : missing)), [catObj], _toConsumableArray(makeGap(perLine - 1)), _toConsumableArray(emojis));
       });
       var rowCount = Array.isArray(allEmojis) ? Math.ceil(allEmojis.length / perLine) : 0;
-      return /*#__PURE__*/React.createElement("section", {
+      return React.createElement("section", {
         style: _objectSpread({
           width: width
         }, style),
         className: "emoji-mart emoji-mart-".concat(theme),
         "aria-label": title,
         onKeyDown: this.handleKeyDown
-      }, /*#__PURE__*/React.createElement("div", {
+      }, React.createElement("div", {
         className: "emoji-mart-bar"
-      }, /*#__PURE__*/React.createElement(Anchors, {
+      }, React.createElement(Anchors, {
         ref: this.setAnchorsRef,
         data: this.data,
         i18n: this.i18n,
@@ -587,7 +583,7 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
         onAnchorClick: this.handleAnchorClick,
         icons: this.icons,
         titleIndexes: titleIndexes
-      })), /*#__PURE__*/React.createElement(Search, {
+      })), React.createElement(Search, {
         ref: this.setSearchRef,
         onSearch: this.handleSearch,
         data: this.data,
@@ -597,9 +593,9 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
         exclude: exclude,
         custom: this.CUSTOM,
         autoFocus: autoFocus
-      }), /*#__PURE__*/React.createElement("div", {
+      }), React.createElement("div", {
         className: "emoji-mart-scroll"
-      }, /*#__PURE__*/React.createElement(Grid, {
+      }, React.createElement(Grid, {
         ref: gridRef,
         columnCount: perLine,
         columnWidth: 36,
@@ -617,15 +613,15 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
         emojiProps: emojiProps
       })), allEmojis && !allEmojis.filter(function (a) {
         return a && !a.cat_id;
-      }).length && /*#__PURE__*/React.createElement(NotFound, {
+      }).length && React.createElement(NotFound, {
         i18n: this.i18n,
         notFound: notFound,
         notFoundEmoji: notFoundEmoji,
         data: this.data,
         emojiProps: emojiProps
-      })), (showPreview || showSkinTones) && /*#__PURE__*/React.createElement("div", {
+      })), (showPreview || showSkinTones) && React.createElement("div", {
         className: "emoji-mart-bar"
-      }, /*#__PURE__*/React.createElement(Preview, {
+      }, React.createElement(Preview, {
         ref: this.setPreviewRef,
         data: this.data,
         title: title,
@@ -633,7 +629,7 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
         showSkinTones: showSkinTones,
         showPreview: showPreview,
         emojiProps: {
-          native: native,
+          "native": _native,
           size: 38,
           skin: skin,
           set: set,
@@ -658,7 +654,7 @@ var NimblePicker = /*#__PURE__*/function (_React$PureComponent) {
 export { NimblePicker as default };
 NimblePicker.propTypes
 /* remove-proptypes */
-= _objectSpread(_objectSpread({}, PickerPropTypes), {}, {
+= _objectSpread({}, PickerPropTypes, {
   data: PropTypes.object.isRequired
 });
 NimblePicker.defaultProps = _objectSpread({}, PickerDefaultProps);
