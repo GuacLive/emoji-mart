@@ -335,7 +335,7 @@ function (_React$PureComponent) {
     }
   }, {
     key: "handleScrollPaint",
-    value: function handleScrollPaint(titleIndexes) {
+    value: function handleScrollPaint(titleIndexes, size) {
       var _this3 = this;
 
       return function (_ref) {
@@ -345,7 +345,7 @@ function (_React$PureComponent) {
         if (_this3.SEARCH_CATEGORY.emojis) {
           activeCategory = _this3.SEARCH_CATEGORY;
         } else {
-          var scrolledItem = Math.ceil(scrollTop / 36);
+          var scrolledItem = Math.ceil(scrollTop / size);
           Object.keys(titleIndexes).sort(function (a, b) {
             return titleIndexes[a].row - titleIndexes[b].row;
           }).some(function (key, index) {
@@ -601,9 +601,9 @@ function (_React$PureComponent) {
         columnWidth: emojiSize + 12,
         rowHeight: emojiSize + 12,
         height: 264,
-        width: perLine * 36 + 10,
+        width: width - 12,
         rowCount: rowCount,
-        onScroll: this.handleScrollPaint(titleIndexes)
+        onScroll: this.handleScrollPaint(titleIndexes, emojiSize + 12)
       }, renderEmoji({
         activeCategory: this.activeCategory,
         i18n: this.i18n,
